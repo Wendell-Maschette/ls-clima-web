@@ -1,0 +1,41 @@
+@import '../index.scss';
+
+.w-brands {
+    background-color: #FFFFFF;
+    text-align: center;
+    padding: 3rem;
+
+
+    &__section-title {
+        &__title {}
+
+        &__subtitle {}
+    }
+
+    &__image {
+        display: none;
+
+        @include respond-from-medium {
+            display: block;
+            width: 100%;
+            max-width: 70rem;
+            margin: auto;
+        }
+    }
+
+    &__image-mobile {
+        display: block;
+        margin: auto;
+        width: 100%;
+        max-width: 25rem;
+
+        @include respond-from-small {
+            width: 90%;
+
+        }
+
+        @include respond-from-medium {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,60 @@
+@import '../index.scss';
+
+.w-footer {
+    background-color: #FE760E;
+    background-image: linear-gradient(to bottom, rgb(255, 188, 137), #FE760E);
+    padding: 2rem 2rem;
+
+    &__section-title {
+        text-align: center;
+        padding: 1rem 0;
+    }
+
+    &__section-contact {
+        width: 100%;
+
+        @include respond-from-medium {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            max-width: 80rem;
+            margin: auto;
+        }
+    }
+
+    &__contacts {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__contact {
+        display: flex;
+    }
+
+    &__text-contact {
+        padding-left: 1rem;
+    }
+
+    &__image {
+        height: 10rem;
+        opacity: 70%;
+        margin-bottom: 2rem;
+
+        @include respond-to-medium {
+            padding: 0;
+            width: 100%;
+        }
+    }
+
+    &__icon {
+        height: 3rem;
+    }
+
+    &__label {
+        margin: 0;
+    }
+
+    &__contact-value {
+        margin: 0;
+    }
+}

@@ -1,0 +1,41 @@
+@import '../index.scss';
+
+
+.w-services-provided {
+    background-color: #FFFFFF;
+
+    &__section-title {
+        text-align: center;
+        padding: 2rem 2rem;
+
+
+        &__title {}
+
+        &__subtitle {}
+    }
+
+
+    &__section-services {
+        text-align: center;
+            padding: 2rem 0;
+
+        @include respond-from-medium {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2em;
+            padding: 2rem 10rem;
+            text-align: center;
+        }
+
+        &__service {
+            &__image {
+                height: 10rem;
+            }
+
+            &__title {
+                margin-left: 1em;
+                font-weight: 700;
+            }
+        }
+    }
+}

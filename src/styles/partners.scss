@@ -1,0 +1,33 @@
+@import '../index.scss';
+
+.w-third-block {
+    padding: 0 3rem;
+    background-color: #FFFF;
+
+    text-align: center;
+
+
+    &__title {}
+
+    &__image {
+        display: none;
+
+        @include respond-from-large {
+            display: block;
+            width: 100%;
+            max-width: 70rem;
+            margin: auto;
+        }
+    }
+
+    &__image-mobile {
+        display: block;
+        width: 100%;
+        max-width: 20rem;
+        margin: auto;
+
+        @include respond-from-large {
+            display: none;
+        }
+    }
+}

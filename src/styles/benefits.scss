@@ -1,0 +1,61 @@
+@import '../index.scss';
+
+.w-second-block {
+    padding: 2rem 3rem;
+    background-color: #FFFFFF;
+
+    @include respond-from-medium {
+        padding: 2rem 5rem;
+
+    }
+
+    @include respond-from-large {
+        padding: 2rem 10rem;
+
+    }
+
+
+    &__chapter {
+        text-align: center;
+        padding: 0 0rem;
+        @include respond-from-large {
+            padding: 2rem 5rem;
+    
+        }
+
+    }
+
+    &__steps {
+        padding-top: 2rem;
+
+        @include respond-from-medium {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem 4rem;
+
+        }
+
+        &__step {
+
+            &__section-title {
+                display: flex;
+                align-items: center;
+
+                &__image {
+                    height: 5em;
+                }
+
+                &__title {
+                    margin-left: 1em;
+                    font-weight: 700;
+                }
+            }
+
+            &__section-body {
+                text-align: justify;
+                
+            }
+        }
+    }
+
+}

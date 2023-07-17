@@ -1,0 +1,39 @@
+@import '../index.scss';
+
+.w-budget {
+    background-color: #FFFFFF;
+    background-image: linear-gradient(to bottom, #FFFFFF, rgb(253, 171, 107, 0.8));
+    padding: 3rem;
+    &__section-title {
+        text-align: center;
+
+        &__title {}
+
+        &__subtitle {}
+    }
+
+    &__section-form {
+        display: block;
+        text-align: center;
+
+        &__form {
+            display: flex;
+            flex-direction: column;
+            max-width: 25rem;
+            margin: auto;
+
+            &__field {
+                margin-bottom: 1rem;
+            }
+            &__button {
+                background-color: #13386e;
+                animation: slideInFromLeft 1s ease-in-out forwards;
+        
+                &:hover{
+                    background-color: #517ec2;
+
+                }
+            }
+        }
+    }
+}

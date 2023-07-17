@@ -1,0 +1,92 @@
+@import '../index.scss';
+
+
+.w-first-block {
+  padding: 2rem 4rem;
+  background-color: #FFFFFF;
+  background-image: linear-gradient(to bottom, rgb(137, 254, 254, 0.8), rgba(255, 255, 255, 0));
+
+  &__link {
+    max-width: 10px;
+  }
+
+  @include respond-from-large {
+    padding: 3rem 10rem;
+  }
+
+  &__image {
+    width: 10rem;
+    animation: slideInFromLeft 1s ease-in-out forwards;
+
+  }
+
+  &__section-text {
+    width: 100%;
+    animation: slideInFromLeft 1s ease-in-out forwards;
+
+    @include respond-from-xlarge {
+      width: 40%;
+    }
+
+    &__title {}
+
+    &__subtitle {}
+  }
+
+  &__button {
+    background-color: #FE760E;
+    animation: slideInFromLeft 1s ease-in-out forwards;
+    margin-top: 1rem;
+    
+    &:hover {
+      background-color: #fdab6b;
+    }
+
+    &__icon {
+      justify-items: center;
+      padding-left: 1rem;
+    }
+  }
+
+
+
+  &__installation-image {
+    margin-top: 2rem;
+    animation: slideInFromRight 1s ease-in-out;
+    width: 100%;
+
+    @include respond-from-xlarge {
+      margin-top: 0;
+      position: absolute;
+      top: 2rem;
+      opacity: 0.8;
+      width: 50%;
+      right: 3em;
+
+    }
+  }
+
+  @keyframes slideInFromRight {
+    0% {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}
