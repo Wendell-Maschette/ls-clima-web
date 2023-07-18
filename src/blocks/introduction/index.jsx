@@ -1,7 +1,7 @@
 import React from 'react'
 import LogoLS from '../../assets/logo-ls.svg'
 import Installated from '../../assets/Installated.svg'
-import Styles from '../../styles/introduction.scss'
+import Styles from '../../styles/blocks/introduction.scss'
 import PortfolioPDF from '../../assets/portifolio/portfolio.pdf'
 import DownloadSVG from '../../assets/download.svg'
 

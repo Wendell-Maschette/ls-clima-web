@@ -3,7 +3,7 @@ import HandFrameworkSVG from '../../assets/hand-framework.svg'
 import CleanSVG from '../../assets/clean.svg'
 import WindSVG from '../../assets/wind.svg'
 import ProjectSVG from '../../assets/project.svg'
-import Styles from '../../styles/services-provided.scss'
+import Styles from '../../styles/blocks/services-provided.scss'
 
 export default function ServicesProvided() {
   return (

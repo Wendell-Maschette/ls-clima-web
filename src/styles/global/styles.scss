@@ -1,3 +1,6 @@
+@import '../global/mixins.scss';
+
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -13,73 +16,6 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
-
-$breakpoint-small: 576px;
-$breakpoint-medium: 768px;
-$breakpoint-large: 992px;
-$breakpoint-xlarge: 1200px;
-$breakpoint-xxlarge: 1400px;
-
-@mixin respond-to-small {
-  @media (max-width: $breakpoint-small) {
-    @content;
-  }
-}
-
-@mixin respond-to-medium {
-  @media (max-width: $breakpoint-medium) {
-    @content;
-  }
-}
-
-@mixin respond-to-large {
-  @media (max-width: $breakpoint-large) {
-    @content;
-  }
-}
-
-@mixin respond-to-xlarge {
-  @media (max-width: $breakpoint-xlarge) {
-    @content;
-  }
-}
-
-@mixin respond-to-xxlarge {
-  @media (max-width: $breakpoint-xlarge) {
-    @content;
-  }
-}
-
-@mixin respond-from-small {
-  @media (min-width: $breakpoint-small) {
-    @content;
-  }
-}
-
-@mixin respond-from-medium {
-  @media (min-width: $breakpoint-medium) {
-    @content;
-  }
-}
-
-@mixin respond-from-large {
-  @media (min-width: $breakpoint-large) {
-    @content;
-  }
-}
-
-@mixin respond-from-xlarge {
-  @media (min-width: $breakpoint-xlarge) {
-    @content;
-  }
-}
-
-@mixin respond-from-xxlarge {
-  @media (min-width: $breakpoint-xlarge) {
-    @content;
-  }
-}
-
 
 a {
   font-weight: 500;
@@ -101,6 +37,8 @@ h1 {
   font-size: 3em;
   font-weight: 400;
   margin: 0
+
+  
 }
 
 h2 {
@@ -145,3 +83,5 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+

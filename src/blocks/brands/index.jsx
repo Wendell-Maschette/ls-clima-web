@@ -1,7 +1,7 @@
 import React from 'react'
 import BrandsSVG from '../../assets/brands.svg'
 import BrandsMobileSVG from '../../assets/mobile/brands-mobile.svg'
-import Styles from '../../styles/brands.scss'
+import Styles from '../../styles/blocks/brands.scss'
 
 export default function Brands() {
     return (

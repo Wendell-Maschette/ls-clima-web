@@ -1,5 +1,5 @@
 import React from 'react'
-import Styles from '../../styles/footer.scss'
+import Styles from '../../styles/blocks/footer.scss'
 import LogoLsSVG from '../../assets/logo-ls.svg'
 import EmailSVG from '../../assets/email.svg'
 import PhoneSVG from '../../assets/phone.svg'

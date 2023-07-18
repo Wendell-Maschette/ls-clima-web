@@ -1,31 +1,32 @@
 import React, { useEffect, useRef, useState } from 'react';
 import InputMask from 'react-input-mask';
-import Styles from '../../styles/budget.scss';
+import '../../styles/blocks/budget.scss';
 import { TextField, Checkbox } from '@mui/material';
+import sendEmail from '../../services/api';
+import BudgetData from '../../interfaces/BudgetData';
 
-const Budget =  React.forwardRef(({ onSectionScroll }, ref)=> {
+interface BudgetProps {
+    onSectionScroll: () => void;
+  }
+
+const Budget =  React.forwardRef<HTMLDivElement, BudgetProps>(({ onSectionScroll }: any, ref)=> {
     useEffect(() => {
         onSectionScroll();
     }, [onSectionScroll]);
 
-    const [nome, setNome] = useState('');
-    const [empresa, setEmpresa] = useState('');
-    const [telefone, setTelefone] = useState('');
+    const [name, setName] = useState('');
+    const [phone, setPhone] = useState('');
     const [email, setEmail] = useState('');
     const [emailError, setEmailError] = useState(false);
-    const [servicos, setServicos] = useState([]);
-    const [marca, setMarca] = useState('');
+    const [services, setServices] = useState<string[]>([]);
+    const [brand, setBrand] = useState('');
 
     const handleChangeNome = (event) => {
-        setNome(event.target.value);
+        setName(event.target.value);
     };
 
-    const handleChangeEmpresa = (event) => {
-        setEmpresa(event.target.value);
-    };
-
-    const handleChangeTelefone = (event) => {
-        setTelefone(event.target.value);
+    const handleChangePhone = (event) => {
+        setPhone(event.target.value);
     };
 
     const handleChangeEmail = (event) => {
@@ -42,33 +43,43 @@ const Budget =  React.forwardRef(({ onSectionScroll }, ref)=> {
         }
     };
 
-    const handleChangeServicos = (event) => {
+    const handleChangeServices = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { value, checked } = event.target;
 
         if (checked) {
-            setServicos([...servicos, value]);
+            setServices([...services, value]);
         } else {
-            setServicos(servicos.filter((servico) => servico !== value));
+            setServices(services.filter((servico) => servico !== value));
         }
     };
 
-    const handleChangeMarca = (event) => {
-        setMarca(event.target.value);
+    const handleChangeBrand = (event) => {
+        setBrand(event.target.value);
     };
+
+    const sendEmailService = (params) => {
+        sendEmail(params);
+    }
 
     const handleSubmit = (event) => {
         event.preventDefault();
         if (!emailError) {
             // Aqui você pode enviar os dados para onde quiser, como uma API, por exemplo
-            console.log('Dados enviados:', { nome, empresa, telefone, email, servicos });
-
+            console.log('Dados enviados:', { name, phone, email, services, brand });
+            const budget: BudgetData = {
+                name,
+                phone,
+                email,
+                services,
+                brand
+            }
+            sendEmailService(budget)
             // Limpa os campos após enviar os dados
-            setNome('');
-            setEmpresa('');
-            setTelefone('');
+            setName('');
+            setPhone('');
             setEmail('');
-            setServicos([]);
-            setMarca('');
+            setServices([]);
+            setBrand('');
         }
     };
 
@@ -84,7 +95,7 @@ const Budget =  React.forwardRef(({ onSectionScroll }, ref)=> {
             <form className='w-budget__section-form__form' onSubmit={handleSubmit}>
                 <TextField
                     label="Nome/Empresa"
-                    value={nome}
+                    value={name}
                     onChange={handleChangeNome}
                     placeholder="Digite seu nome ou empresa"
                     variant="outlined"
@@ -93,8 +104,8 @@ const Budget =  React.forwardRef(({ onSectionScroll }, ref)=> {
                 />
                 <InputMask
                     mask="(99) 99999-9999"
-                    value={telefone}
-                    onChange={handleChangeTelefone}
+                    value={phone}
+                    onChange={handleChangePhone}
                 >
                     {() => (
                         <TextField
@@ -124,30 +135,30 @@ const Budget =  React.forwardRef(({ onSectionScroll }, ref)=> {
                     <p>Tipo de serviço:</p>
                     <Checkbox
                         value="Instalação"
-                        checked={servicos.includes('Instalação')}
-                        onChange={handleChangeServicos}
+                        checked={services.includes('Instalação')}
+                        onChange={handleChangeServices}
                     />
                     Instalação
                     <br />
                     <Checkbox
                         value="Manutenção"
-                        checked={servicos.includes('Manutenção')}
-                        onChange={handleChangeServicos}
+                        checked={services.includes('Manutenção')}
+                        onChange={handleChangeServices}
                     />
                     Manutenção
                     <br />
                     <Checkbox
                         value="Limpeza"
-                        checked={servicos.includes('Limpeza')}
-                        onChange={handleChangeServicos}
+                        checked={services.includes('Limpeza')}
+                        onChange={handleChangeServices}
                     />
                     Limpeza e higienização
                     <br />
 
                     <Checkbox
                         value="Projeto"
-                        checked={servicos.includes('Projeto')}
-                        onChange={handleChangeServicos}
+                        checked={services.includes('Projeto')}
+                        onChange={handleChangeServices}
                     />
                     Projeto/Documentação
                     <br />
@@ -155,15 +166,15 @@ const Budget =  React.forwardRef(({ onSectionScroll }, ref)=> {
                 <div className='w-budget__section-form__form__field'>
                     <TextField
                         label="Marca desejada (opcional)"
-                        value={marca}
-                        onChange={handleChangeMarca}
+                        value={brand}
+                        onChange={handleChangeBrand}
                         placeholder="Digite a marca (opcional)"
                         variant="outlined"
                         fullWidth
                         margin="normal"
                     />
                 </div>
-                <button className='w-budget__section-form__form__button'>Enviar</button>
+                <button onClick={handleSubmit} className='w-budget__section-form__form__button'>Enviar</button>
             </form>
         </div>
     )

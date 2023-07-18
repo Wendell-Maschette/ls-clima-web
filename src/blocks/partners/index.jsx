@@ -1,7 +1,7 @@
 import React from 'react'
 import PartnersSVG from '../../assets/partners.svg'
 import PartnersMobileSVG from '../../assets/mobile/partners-mobile.svg'
-import Styles from '../../styles/partners.scss'
+import Styles from '../../styles/blocks/partners.scss'
 
 export default function Partners() {
   return (

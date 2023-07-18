@@ -1,5 +1,5 @@
 import React from 'react'
-import Styles from '../../styles/benefits.scss'
+import Styles from '../../styles/blocks/benefits.scss'
 import FirstStep from '../../assets/steps/step-1.svg'
 import SecondStep from '../../assets/steps/step-2.svg'
 import ThirdStep from '../../assets/steps/step-3.svg'
