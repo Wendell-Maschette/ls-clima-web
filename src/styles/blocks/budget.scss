@@ -3,13 +3,21 @@
 .w-budget {
     background-color: #FFFFFF;
     background-image: linear-gradient(to bottom, #FFFFFF, rgb(253, 171, 107, 0.8));
-    padding: 3rem;
+    padding: 2rem 4rem;
+    overflow-x: hidden;
+
     &__section-title {
         text-align: center;
 
         &__title {}
 
-        &__subtitle {}
+        &__subtitle {
+            text-align: justify;
+
+            @include respond-from-medium {
+                text-align: center;
+            }
+        }
     }
 
     &__section-form {
@@ -25,11 +33,11 @@
             &__field {
                 margin-bottom: 1rem;
             }
+
             &__button {
                 background-color: #13386e;
-                animation: slideInFromLeft 1s ease-in-out forwards;
-        
-                &:hover{
+
+                &:hover {
                     background-color: #517ec2;
 
                 }

@@ -1,6 +1,4 @@
-import axios, { AxiosError, AxiosResponse } from "axios";
 import BudgetData from "../interfaces/BudgetData";
-import EmailData from "../interfaces/EmailData";
 import emailjs from '@emailjs/browser'
 
 const sendEmail = async (params: BudgetData) => {

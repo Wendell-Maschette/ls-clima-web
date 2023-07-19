@@ -1,5 +1,5 @@
 import React from 'react'
-import Styles from '../../styles/blocks/footer.scss'
+import '../../styles/blocks/footer.scss'
 import LogoLsSVG from '../../assets/logo-ls.svg'
 import EmailSVG from '../../assets/email.svg'
 import PhoneSVG from '../../assets/phone.svg'
@@ -26,7 +26,7 @@ export default function Footer() {
             <img className='w-footer__icon' src={PhoneSVG} />
             <div className='w-footer__text-contact'>
               <h3 className='w-footer__label'>E-mail</h3>
-              <p className='w-footer__contact-value'> lsrefrigeracao@outlook.com</p>
+              <p className='w-footer__contact-value'> lsclimaref@gmail.com</p>
             </div>
           </div>
           <div className='w-footer__contact'>

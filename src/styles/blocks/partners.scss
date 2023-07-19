@@ -3,15 +3,20 @@
 .w-third-block {
     padding: 0 3rem;
     background-color: #FFFF;
-
+    overflow-x: hidden;
     text-align: center;
-
 
     &__title {}
 
+    &__subtitle {
+        text-align: justify;
+        @include respond-from-medium {
+        text-align: center;
+        }
+    }
+
     &__image {
         display: none;
-
         @include respond-from-large {
             display: block;
             width: 100%;

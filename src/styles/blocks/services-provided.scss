@@ -2,38 +2,44 @@
 
 .w-services-provided {
     background-color: #FFFFFF;
+    padding: 2rem 4rem;
 
     &__section-title {
         text-align: center;
-        padding: 2rem 2rem;
 
 
         &__title {}
 
-        &__subtitle {}
+        &__subtitle {
+            text-align: justify;
+
+            @include respond-from-medium {
+                text-align: center;
+            }
+        }
     }
 
 
     &__section-services {
         text-align: center;
-            padding: 2rem 0;
+        padding: 2rem 0;
+        overflow-x: hidden;
 
         @include respond-from-medium {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 2em;
-            padding: 2rem 10rem;
+            gap: 2rem;
             text-align: center;
         }
 
         &__service {
+            padding: 1rem 0;
             &__image {
                 height: 10rem;
             }
 
             &__title {
-                margin-left: 1em;
-                font-weight: 700;
+                margin: 1rem;
             }
         }
     }

@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import InputMask from 'react-input-mask';
-import  '../../styles/blocks/budget.scss';
 import { TextField, Checkbox } from '@mui/material';
 import sendEmail from '../../services/api';
 import BudgetData from '../../interfaces/BudgetData';
+import '../../styles/blocks/budget.scss';
 
 
 interface BudgetProps {

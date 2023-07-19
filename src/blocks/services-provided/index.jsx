@@ -1,35 +1,67 @@
-import React from 'react'
-import HandFrameworkSVG from '../../assets/hand-framework.svg'
-import CleanSVG from '../../assets/clean.svg'
-import WindSVG from '../../assets/wind.svg'
-import ProjectSVG from '../../assets/project.svg'
-import Styles from '../../styles/blocks/services-provided.scss'
+import React, { useEffect, useState } from 'react';
+import { useTrail, animated } from 'react-spring';
+import VisibilitySensor from 'react-visibility-sensor';
+import HandFrameworkSVG from '../../assets/hand-framework.svg';
+import CleanSVG from '../../assets/clean.svg';
+import WindSVG from '../../assets/wind.svg';
+import ProjectSVG from '../../assets/project.svg';
+import '../../styles/blocks/services-provided.scss';
 
 export default function ServicesProvided() {
+  const items = [
+    { image: HandFrameworkSVG, title: 'Instalação e manutenção' },
+    { image: CleanSVG, title: 'Limpeza e Higienização' },
+    { image: WindSVG, title: 'Sistemas de Ventilação' },
+    { image: ProjectSVG, title: 'Projetos e documentações' },
+  ];
+
+  const [isVisible, setIsVisible] = useState(false);
+  const [hasScrolledToSection, setHasScrolledToSection] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const section = document.querySelector('.w-services-provided');
+      if (section) {
+        const rect = section.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
+        if (isVisible && !hasScrolledToSection) {
+          setHasScrolledToSection(true);
+        }
+      }
+    };
+  
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [hasScrolledToSection]);
+
+  const trail = useTrail(items.length, {
+    from: { opacity: 0, transform: 'translateX(-200px)' },
+    to: { opacity: hasScrolledToSection ? 1 : 0, transform: hasScrolledToSection ? 'translateX(0)' : 'translateX(-200px)' },
+    config: { duration: 900, delay: 700 },
+  });
+
   return (
-    <div className='w-services-provided'>
-      <div className='w-services-provided__section-title'>
-        <h1 className='w-services-provided__section-title__title'>Serviços prestados</h1>
-        <h3 className='w-services-provided__section-title__subtitle'>Serviços para ar-condicionado residencial, comercial e industrial para ambientes perfeitamente climatizados</h3>
+    <div className="w-services-provided">
+      <div className="w-services-provided__section-title">
+        <h1 className="w-services-provided__section-title__title">Serviços prestados</h1>
+        <h3 className="w-services-provided__section-title__subtitle">
+          Serviços para ar-condicionado residencial, comercial e industrial para ambientes perfeitamente climatizados.
+        </h3>
       </div>
-      <div className='w-services-provided__section-services'>
-        <div className='w-services-provided__section-services__service'>
-          <img className='w-services-provided__section-services__service__image' src={HandFrameworkSVG}/>
-          <h2 className='w-services-provided__section-services__service__title'>Instalação e manutenção</h2>
-        </div>
-        <div className='w-services-provided__section-services__service'>
-          <img className='w-services-provided__section-services__service__image' src={CleanSVG}/>
-          <h2 className='w-services-provided__section-services__service__title'>Limpeza e Higienização</h2>
-        </div>
-        <div className='w-services-provided__section-services__service'>
-          <img className='w-services-provided__section-services__service__image' src={WindSVG}/>
-          <h2 className='w-services-provided__section-services__service__title'>Sistemas de Ventilação</h2>
-        </div>
-        <div className='w-services-provided__section-services__service'>
-          <img className='w-services-provided__section-services__service__image' src={ProjectSVG}/>
-          <h2 className='w-services-provided__section-services__service__title'>Projetos e documentações</h2>
-        </div>
+      <div className="w-services-provided__section-services">
+        {trail.map((props, index) => (
+          <VisibilitySensor key={index} partialVisibility>
+            {({ isVisible }) => (
+              <animated.div className="w-services-provided__section-services__service" style={props}>
+                <img className="w-services-provided__section-services__service__image" src={items[index].image} alt="" />
+                <h2 className="w-services-provided__section-services__service__title">{items[index].title}</h2>
+              </animated.div>
+            )}
+          </VisibilitySensor>
+        ))}
       </div>
     </div>
-  )
+  );
 }

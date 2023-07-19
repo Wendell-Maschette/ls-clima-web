@@ -4,17 +4,23 @@
     background-color: #FFFFFF;
     text-align: center;
     padding: 3rem;
+    overflow-x: hidden;
 
 
     &__section-title {
         &__title {}
 
-        &__subtitle {}
+        &__subtitle {
+            text-align: justify;
+
+            @include respond-from-medium {
+                text-align: center;
+            }
+        }
     }
 
     &__image {
         display: none;
-
         @include respond-from-medium {
             display: block;
             width: 100%;
