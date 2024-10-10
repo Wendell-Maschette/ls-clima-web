@@ -33,7 +33,7 @@ export default function Partners() {
     };
   }, [hasScrolledToSection]);
 
-  const onChangeVisibility = (isVisible) => {
+  const onChangeVisibility = (isVisible: boolean) => {
     if (isVisible) {
       setVisible(true);
     }

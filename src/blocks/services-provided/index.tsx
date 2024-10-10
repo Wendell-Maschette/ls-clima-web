@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useTrail, animated } from 'react-spring';
-import VisibilitySensor from 'react-visibility-sensor';
 import HandFrameworkSVG from '../../assets/hand-framework.svg';
 import CleanSVG from '../../assets/clean.svg';
 import WindSVG from '../../assets/wind.svg';
@@ -15,7 +14,6 @@ export default function ServicesProvided() {
     { image: ProjectSVG, title: 'Projetos e documentações' },
   ];
 
-  const [isVisible, setIsVisible] = useState(false);
   const [hasScrolledToSection, setHasScrolledToSection] = useState(false);
 
   useEffect(() => {
@@ -29,7 +27,7 @@ export default function ServicesProvided() {
         }
       }
     };
-  
+
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -52,14 +50,10 @@ export default function ServicesProvided() {
       </div>
       <div className="w-services-provided__section-services">
         {trail.map((props, index) => (
-          <VisibilitySensor key={index} partialVisibility>
-            {({ isVisible }) => (
-              <animated.div className="w-services-provided__section-services__service" style={props}>
-                <img className="w-services-provided__section-services__service__image" src={items[index].image} alt="" />
-                <h2 className="w-services-provided__section-services__service__title">{items[index].title}</h2>
-              </animated.div>
-            )}
-          </VisibilitySensor>
+          <animated.div key={index} className="w-services-provided__section-services__service" style={props}>
+            <img className="w-services-provided__section-services__service__image" src={items[index].image} alt="" />
+            <h2 className="w-services-provided__section-services__service__title">{items[index].title}</h2>
+          </animated.div>
         ))}
       </div>
     </div>
