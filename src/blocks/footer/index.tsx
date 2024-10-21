@@ -18,7 +18,7 @@ export default function Footer() {
         <div className="w-footer__contacts">
           <ul>
             <li>
-              <a href="https://wa.me/5511987654321?text=Quero%20um%20or%C3%A7amento">
+              <a href="https://wa.me/5511945855992?text=Quero%20um%20or%C3%A7amento">
                 <div className="w-footer__contact">
                   <img className="w-footer__icon" src={PhoneSVG} alt="Whatsapp" />
                   <div className="w-footer__text-contact">
