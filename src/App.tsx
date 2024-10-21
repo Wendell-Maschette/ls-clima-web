@@ -1,12 +1,12 @@
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import './styles/global/App.scss';
-import Introduction from './blocks/introduction';
 import Benefits from './blocks/benefits';
 import Partners from './blocks/partners';
 import ServicesProvided from './blocks/services-provided';
 import Brands from './blocks/brands';
 import Budget from './blocks/budget';
 import Footer from './blocks/footer';
+import Introduction from './blocks/introduction';
 
 function App() {
   const sectionRef = useRef<HTMLDivElement>(null);

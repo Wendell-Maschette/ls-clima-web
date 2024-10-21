@@ -22,15 +22,15 @@ const Budget =  React.forwardRef<HTMLDivElement, BudgetProps>(({ onSectionScroll
     const [services, setServices] = useState<string[]>([]);
     const [brand, setBrand] = useState('');
 
-    const handleChangeNome = (event) => {
+    const handleChangeNome = (event: any) => {
         setName(event.target.value);
     };
 
-    const handleChangePhone = (event) => {
+    const handleChangePhone = (event: any) => {
         setPhone(event.target.value);
     };
 
-    const handleChangeEmail = (event) => {
+    const handleChangeEmail = (event: any) => {
         setEmail(event.target.value);
     };
 
@@ -54,15 +54,15 @@ const Budget =  React.forwardRef<HTMLDivElement, BudgetProps>(({ onSectionScroll
         }
     };
 
-    const handleChangeBrand = (event) => {
+    const handleChangeBrand = (event: any) => {
         setBrand(event.target.value);
     };
 
-    const sendEmailService = (params) => {
+    const sendEmailService = (params: any) => {
         sendEmail(params);
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = (event: any) => {
         event.preventDefault();
         if (!emailError) {
             // Aqui você pode enviar os dados para onde quiser, como uma API, por exemplo

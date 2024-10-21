@@ -1,4 +1,3 @@
-import React from 'react'
 import LogoLS from '../../assets/logo-ls.svg'
 import Installated from '../../assets/Installated.svg'
 import '../../styles/blocks/introduction.scss'
@@ -6,7 +5,7 @@ import PortfolioPDF from '../../assets/portifolio/portfolio-ls-clima-ref.pdf'
 import DownloadSVG from '../../assets/download.svg'
 
 
-const Introduction = ({ scrollToSection }) => {
+const Introduction = ({ scrollToSection }: any) => {
 
   const handleClick = () => {
     scrollToSection();

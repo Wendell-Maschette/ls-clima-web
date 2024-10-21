@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSpring, animated } from 'react-spring';
 import VisibilitySensor from 'react-visibility-sensor';
 import BrandsSVG from '../../assets/brands.svg';
@@ -39,7 +39,7 @@ export default function Brands() {
         <h3 className="w-brands__section-title__subtitle">Conheça as marcas de qualidade que utilizamos para atender às suas necessidades</h3>
       </div>
       <VisibilitySensor partialVisibility>
-        {({ isVisible }) => (
+        {({ isVisible }: any) => (
           <animated.div style={springProps}>
             <img src={BrandsSVG} className="w-brands__image" style={{ visibility: isVisible ? 'visible' : 'hidden' }} alt="" />
             <img src={BrandsMobileSVG} className="w-brands__image-mobile" style={{ visibility: isVisible ? 'visible' : 'hidden' }} alt="" />
