@@ -1,4 +1,3 @@
-import React from 'react'
 import '../../styles/blocks/benefits.scss'
 import FirstStep from '../../assets/steps/step-1.svg'
 import SecondStep from '../../assets/steps/step-2.svg'

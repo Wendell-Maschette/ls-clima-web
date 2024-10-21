@@ -51,7 +51,7 @@ export default function ServicesProvided() {
       <div className="w-services-provided__section-services">
         {trail.map((props, index) => (
           <animated.div key={index} className="w-services-provided__section-services__service" style={props}>
-            <img className="w-services-provided__section-services__service__image" src={items[index].image} alt="" />
+            <img className="w-services-provided__section-services__service__image" src={items[index].image} alt="serviços prestados" />
             <h2 className="w-services-provided__section-services__service__title">{items[index].title}</h2>
           </animated.div>
         ))}
