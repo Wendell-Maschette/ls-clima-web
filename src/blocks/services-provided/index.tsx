@@ -8,10 +8,10 @@ import '../../styles/blocks/services-provided.scss';
 
 export default function ServicesProvided() {
   const items = [
-    { image: HandFrameworkSVG, title: 'Instalação e manutenção' },
-    { image: CleanSVG, title: 'Limpeza e Higienização' },
+    { image: HandFrameworkSVG, title: 'Instalação' },
+    { image: CleanSVG, title: 'Higienização e Manutenção Preventiva' },
     { image: WindSVG, title: 'Sistemas de Ventilação' },
-    { image: ProjectSVG, title: 'Projetos e documentações' },
+    { image: ProjectSVG, title: 'Projetos e Documentações' },
   ];
 
   const [hasScrolledToSection, setHasScrolledToSection] = useState(false);
