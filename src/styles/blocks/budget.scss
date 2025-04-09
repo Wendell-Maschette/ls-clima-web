@@ -4,7 +4,12 @@
     background-color: #FFFFFF;
     background-image: linear-gradient(to bottom, #FFFFFF, rgb(253, 171, 107, 0.8));
     padding: 2rem 4rem;
+    padding-top: 3rem;
     overflow-x: hidden;
+
+    :last-child {
+        margin-bottom: 0;
+    }
 
     &__section-title {
         text-align: center;
@@ -12,11 +17,9 @@
         &__title {}
 
         &__subtitle {
-            text-align: justify;
+            text-align: center;
+            text-wrap: balance;
 
-            @include respond-from-medium {
-                text-align: center;
-            }
         }
     }
 

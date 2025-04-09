@@ -1,24 +1,33 @@
 @import '../global/mixins.scss';
 
 .w-second-block {
-    padding: 2rem 4rem;
+    padding: 1rem 3rem;
     background-color: #FFFFFF;
-
-
 
     @include respond-from-large {
         padding: 2rem 10rem;
+    }
 
+    @include respond-from-xlarge {
+        padding: 2rem 8rem;
     }
 
 
     &__chapter {
-        padding: 0 0rem;
-        text-align: justify;
+        padding: 0;
+        text-align: center;
 
-        @include respond-from-medium {
+        p {
             text-align: center;
+            text-wrap: balance;
+
+            @include respond-from-xlarge {
+                text-align: center;
+
+            }
         }
+
+
 
     }
 
@@ -30,18 +39,30 @@
             grid-template-columns: repeat(2, 1fr);
             gap: 2rem 4rem;
 
+            :last-child {
+                margin-bottom: 0;
+            }
+
         }
 
+
         &__step {
+            text-wrap: balance;
 
             &__section-title {
                 display: flex;
                 align-items: center;
-                height: 6rem;
+                text-wrap: balance;
+
 
                 @include respond-from-medium {
                     height: 5rem;
                 }
+
+                @include respond-from-xlarge {
+                    height: 6rem;
+                }
+
 
                 &__image {
                     max-height: 5rem;
@@ -49,13 +70,38 @@
 
                 &__title {
                     margin-left: 1rem;
+
+                    @include respond-from-xlarge {
+                        font-size: x-large;
+                    }
                 }
             }
 
             &__section-body {
                 text-align: justify;
 
+                p {
+                    text-align: justify;
+                    text-wrap: balance;
+                }
+
             }
+        }
+
+        &__step.last {
+            @include respond-from-medium {
+                grid-column: 1 / -1;
+                max-width: 50%;
+                /* Faz o último item ocupar toda a linha */
+                justify-self: center;
+                /* Centraliza horizontalmente */
+                width: fit-content;
+                /* Opcional: para não ocupar toda a linha */
+
+            }
+
+
+
         }
     }
 

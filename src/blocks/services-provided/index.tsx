@@ -44,15 +44,15 @@ export default function ServicesProvided() {
     <div className="w-services-provided">
       <div className="w-services-provided__section-title">
         <h1 className="w-services-provided__section-title__title">Serviços prestados</h1>
-        <h3 className="w-services-provided__section-title__subtitle">
-          Serviços para ar-condicionado residencial, comercial e industrial para ambientes perfeitamente climatizados.
-        </h3>
+        <p className="w-services-provided__section-title__subtitle">
+          Serviços gerais de ar-condicionado e aquecedores para zonas residenciais, comerciais e industriais tornando ambientes perfeitamente climatizados.
+        </p>
       </div>
       <div className="w-services-provided__section-services">
         {trail.map((props, index) => (
           <animated.div key={index} className="w-services-provided__section-services__service" style={props}>
             <img className="w-services-provided__section-services__service__image" src={items[index].image} alt="serviços prestados" />
-            <h2 className="w-services-provided__section-services__service__title">{items[index].title}</h2>
+            <h3 className="w-services-provided__section-services__service__title">{items[index].title}</h3>
           </animated.div>
         ))}
       </div>

@@ -42,7 +42,7 @@ export default function Partners() {
   return (
     <div className={`w-third-block ${hasScrolledToSection ? 'animate' : ''}`}>
           <h1 className='w-third-block__title'>Parceiros e clientes</h1>
-          <h3 className='w-third-block__subtitle'>Confira as empresas para quem já prestamos nossos serviços</h3>
+          <h3 className='w-third-block__subtitle'>Grandes empresas já contrataram nossos serviços e aprovam!</h3>
       <VisibilitySensor onChange={onChangeVisibility} partialVisibility>
         <animated.div style={springProps}>
           <img className='w-third-block__image' src={PartnersSVG} alt="Partners Image" />

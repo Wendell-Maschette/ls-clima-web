@@ -88,7 +88,8 @@ const Budget =  React.forwardRef<HTMLDivElement, BudgetProps>(({ onSectionScroll
         <div className='w-budget' ref={ref}>
             <div className='w-budget__section-title'>
                 <h1 className='w-budget__section-title__title'> Orçamento </h1>
-                <h3 className='w-budget__section-title__subtitle'> Solicite agora um orçamento personalizado! <br />Basta informar seus dados abaixo para entrarmos em contato com você.</h3>
+                <h3 className='w-budget__section-title__subtitle'> Solicite agora um orçamento personalizado! </h3>
+                <p> Basta informar seus dados abaixo para entrarmos em contato com você.</p>
             </div>
             <div className='w-budget__section-form'>
 

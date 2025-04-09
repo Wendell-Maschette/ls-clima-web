@@ -2,7 +2,11 @@
 
 .w-services-provided {
     background-color: #FFFFFF;
-    padding: 2rem 4rem;
+    padding: 0rem 2rem;
+
+    @include respond-from-xlarge {
+        padding: 2rem 4rem;
+    }
 
     &__section-title {
         text-align: center;
@@ -11,7 +15,11 @@
         &__title {}
 
         &__subtitle {
-            text-align: justify;
+            text-align: center;
+
+            @include respond-from-xlarge {
+                text-align: justify;
+            }
 
             @include respond-from-medium {
                 text-align: center;
@@ -33,7 +41,8 @@
         }
 
         &__service {
-            padding: 1rem 0;
+            padding: 0 1rem 0;
+
             &__image {
                 height: 10rem;
             }
