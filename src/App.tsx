@@ -25,13 +25,14 @@ function App() {
 
   return (
     <>
-      <Introduction scrollToSection={handleScrollToSection} />
+      {/* <Introduction scrollToSection={handleScrollToSection} />
       <ServicesProvided />
       <Benefits />
       <Brands />
       <Partners />
       <Budget ref={sectionRef} onSectionScroll={handleSectionScroll} />
-      <Footer />
+      <Footer /> */}
+      <p>404 - Site indisponível</p>
     </>
   );
 }
