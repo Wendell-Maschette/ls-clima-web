@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import InputMask from 'react-input-mask';
 import { TextField, Checkbox } from '@mui/material';
-import sendEmail from '../../services/api';
-import BudgetData from '../../interfaces/BudgetData';
 import '../../styles/blocks/budget.scss';
 
 
@@ -22,15 +20,15 @@ const Budget =  React.forwardRef<HTMLDivElement, BudgetProps>(({ onSectionScroll
     const [services, setServices] = useState<string[]>([]);
     const [brand, setBrand] = useState('');
 
-    const handleChangeNome = (event: any) => {
+    const handleChangeNome = (event) => {
         setName(event.target.value);
     };
 
-    const handleChangePhone = (event: any) => {
+    const handleChangePhone = (event) => {
         setPhone(event.target.value);
     };
 
-    const handleChangeEmail = (event: any) => {
+    const handleChangeEmail = (event) => {
         setEmail(event.target.value);
     };
 
@@ -54,15 +52,15 @@ const Budget =  React.forwardRef<HTMLDivElement, BudgetProps>(({ onSectionScroll
         }
     };
 
-    const handleChangeBrand = (event: any) => {
+    const handleChangeBrand = (event) => {
         setBrand(event.target.value);
     };
 
-    const sendEmailService = (params: any) => {
+    const sendEmailService = (params) => {
         sendEmail(params);
     }
 
-    const handleSubmit = (event: any) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
         if (!emailError) {
             // Aqui você pode enviar os dados para onde quiser, como uma API, por exemplo
@@ -74,7 +72,16 @@ const Budget =  React.forwardRef<HTMLDivElement, BudgetProps>(({ onSectionScroll
                 services,
                 brand
             }
-            sendEmailService(budget)
+            // Monta a mensagem para o WhatsApp
+            const msg =
+                `*Orçamento solicitado pelo site*%0A` +
+                `Nome/Empresa: ${name}%0A` +
+                `Telefone: ${phone}%0A` +
+                `Email: ${email}%0A` +
+                `Serviços: ${services.join(', ')}%0A` +
+                `Marca desejada: ${brand || 'Não informado'}`;
+            const url = `https://wa.me/5511945855992?text=${msg}`;
+            window.open(url, '_blank');
             // Limpa os campos após enviar os dados
             setName('');
             setPhone('');
@@ -88,8 +95,7 @@ const Budget =  React.forwardRef<HTMLDivElement, BudgetProps>(({ onSectionScroll
         <div className='w-budget' ref={ref}>
             <div className='w-budget__section-title'>
                 <h1 className='w-budget__section-title__title'> Orçamento </h1>
-                <h3 className='w-budget__section-title__subtitle'> Solicite agora um orçamento personalizado! </h3>
-                <p> Basta informar seus dados abaixo para entrarmos em contato com você.</p>
+                <h3 className='w-budget__section-title__subtitle'> Solicite agora um orçamento personalizado! <br />Basta informar seus dados abaixo para entrarmos em contato com você.</h3>
             </div>
             <div className='w-budget__section-form'>
 
